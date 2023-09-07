@@ -5,4 +5,6 @@ module com.example.todoapp {
 
     opens com.example.todoapp to javafx.fxml;
     exports com.example.todoapp;
+    exports controller;
+    opens controller to javafx.fxml;
 }
