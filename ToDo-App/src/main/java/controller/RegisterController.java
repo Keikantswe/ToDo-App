@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import database.dbHandler;
 import javafx.fxml.FXML;
 
 import java.net.URL;
@@ -11,6 +12,7 @@ import java.util.ResourceBundle;
 
 public class RegisterController {
 
+    //private dbHandler dbHandler;
 
     @FXML
     private ResourceBundle resources;
@@ -34,9 +36,9 @@ public class RegisterController {
     @FXML
     void initialize() {
 
-       //DatabaseHandler databaseHandler = new DatabaseHandler();
+        dbHandler databasehandler = new dbHandler();
         btnSignUp.setOnAction(actionEvent -> {
-
+         databasehandler.signUp();
        });
 
     }
