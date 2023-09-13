@@ -1,8 +1,20 @@
 package database;
-//import java.sql.*;
+import java.sql.*;
 public class dbHandler extends configs{
 
-    //connection dbconnection;
+    Connection dbConnection;
+
+    public Connection getConnection() throws ClassNotFoundException, SQLException {
+
+        String ConnectString = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" +dbName;
+
+        Class.forName("com.mysql.jdbc.Driver");
+
+        dbConnection = DriverManager.getConnection(ConnectString, dbUser , dbPassword);
+
+        return dbConnection;
+    }
+
 
 
 }
