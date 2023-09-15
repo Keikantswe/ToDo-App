@@ -38,7 +38,8 @@ public class RegisterController {
 
         dbHandler databasehandler = new dbHandler();
         btnSignUp.setOnAction(actionEvent -> {
-         databasehandler.signUp();
+         databasehandler.signUp(txtName.getText(), txtlastName.getText(), txtUserName.getText(), txtPassWord.getText(), "Female" );
+
        });
 
     }
