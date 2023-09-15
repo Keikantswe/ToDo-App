@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #CC2EFA;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
    <children>
       <AnchorPane prefHeight="92.0" prefWidth="700.0" style="-fx-background-color: #8e24aa;">
@@ -30,11 +29,11 @@
          </children>
       </AnchorPane>
       <JFXTextField fx:id="txtName" focusColor="WHITE" labelFloat="true" layoutX="252.0" layoutY="143.0" prefHeight="25.0" prefWidth="216.0" promptText="First Name" unFocusColor="#6a1b9a" />
-      <JFXTextField fx:id="txtName1" focusColor="WHITE" labelFloat="true" layoutX="252.0" layoutY="188.0" prefHeight="25.0" prefWidth="216.0" promptText="Last Name" unFocusColor="#6a1b9a" />
-      <JFXTextField fx:id="txtName2" focusColor="WHITE" labelFloat="true" layoutX="252.0" layoutY="227.0" prefHeight="25.0" prefWidth="216.0" promptText="Username" unFocusColor="#6a1b9a" />
+      <JFXTextField fx:id="txtlastName" focusColor="WHITE" labelFloat="true" layoutX="252.0" layoutY="188.0" prefHeight="25.0" prefWidth="216.0" promptText="Last Name" unFocusColor="#6a1b9a" />
+      <JFXTextField fx:id="txtUserName" focusColor="WHITE" labelFloat="true" layoutX="252.0" layoutY="227.0" prefHeight="25.0" prefWidth="216.0" promptText="Username" unFocusColor="#6a1b9a" />
       <JFXCheckBox layoutX="278.0" layoutY="273.0" selected="true" text="Male" />
       <JFXCheckBox layoutX="350.0" layoutY="273.0" text="Female" />
       <JFXPasswordField fx:id="txtPassWord" focusColor="WHITE" labelFloat="true" layoutX="252.0" layoutY="301.0" prefHeight="25.0" prefWidth="216.0" promptText="Password" unFocusColor="#6a1b9a" viewOrder="1.0" />
-      <JFXButton layoutX="321.0" layoutY="345.0" style="-fx-background-color: #6a1b9a;" text="Sign Up" textFill="WHITE" />
+      <JFXButton fx:id="btnSignUp" layoutX="321.0" layoutY="345.0" style="-fx-background-color: #6a1b9a;" text="Sign Up" textFill="WHITE" />
    </children>
 </AnchorPane>
