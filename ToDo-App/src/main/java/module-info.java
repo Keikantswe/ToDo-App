@@ -4,6 +4,7 @@ module com.example.todoapp {
     requires com.jfoenix;
     requires javafx.controls;
     requires java.sql;
+    requires mysql.connector.j;
 
 
     opens com.example.todoapp to javafx.fxml;
