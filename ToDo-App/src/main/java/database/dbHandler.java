@@ -18,7 +18,7 @@ public class dbHandler extends configs{
 
     //signup user
     public void signUp(String firstname, String lastname, String username,  String password, String gender){
-        String insert = "INSERT INTO" + constant.USER_TABLE + "("+ constant.USER_FIRSTNAME +","+ constant.USER_LASTNAME +","+ constant.USER_USERNAME +
+        String insert = "INSERT INTO " + constant.USER_TABLE + "("+ constant.USER_FIRSTNAME +","+ constant.USER_LASTNAME +","+ constant.USER_USERNAME +
                ","+ constant.USER_PASSWORD +","+ constant.USER_GENDER + ")" + "VALUES(?,?,?,?,?)";
 
         try{
