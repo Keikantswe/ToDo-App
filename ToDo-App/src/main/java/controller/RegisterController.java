@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import database.dbHandler;
 import javafx.fxml.FXML;
+import model.User;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,11 +37,30 @@ public class RegisterController {
     @FXML
     void initialize() {
 
-        dbHandler databasehandler = new dbHandler();
+
         btnSignUp.setOnAction(actionEvent -> {
-         databasehandler.signUp(txtName.getText(), txtlastName.getText(), txtUserName.getText(), txtPassWord.getText(), "Female" );
+         createUser();
 
        });
+    }
 
+    private void createUser() {
+        dbHandler databasehandler = new dbHandler();
+
+        String firstname = txtName.getText();
+        String lastname = txtlastName.getText();
+        String username = txtUserName.getText();
+        String password = txtPassWord.getText();
+        String gender;
+
+        if (rdbFemale.isSelected()) {
+            gender = "Female";
+        } else {
+            gender = "Male";
+        }
+
+        User user = new User(firstname,lastname, username, password, gender);
+
+        databasehandler.signUp(user);
     }
 }
