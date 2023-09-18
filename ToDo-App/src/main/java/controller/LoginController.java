@@ -3,6 +3,8 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.mysql.cj.protocol.Resultset;
+import database.dbHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,10 +12,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.User;
 
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController {
@@ -36,8 +41,11 @@ public class LoginController {
     @FXML
     private JFXPasswordField txtPassWord;
 
+    private dbHandler dbHandler;
     @FXML
     void initialize() {
+
+        dbHandler = new dbHandler();
 
         btnSignUp.setOnAction(actionEvent ->{
             //take user to signup page
@@ -58,23 +66,40 @@ public class LoginController {
 
         });
 
-        String userName = txtName.getText().trim();
-        String userPwd = txtPassWord.getText().trim();
+
 
         btnLogin.setOnAction(actionEvent -> {
-            if(!userName.isEmpty() || !userPwd.isEmpty()){
-                LoginUser(userName, userPwd);
-            }else{
-                System.out.println("Login error");
+
+            String userName = txtName.getText().trim();
+            String userPwd = txtPassWord.getText().trim();
+
+            User user = new User();
+
+            user.setUsername(userName);
+            user.setPassword(userPwd);
+
+            ResultSet result =  dbHandler.LoginUser(user);
+
+            int Counter = 0;
+
+            try {
+                while (result.next()){
+                    Counter++;
+                }
+
+                if(Counter == 1){
+                    System.out.println("Login Successful");
+                }
+
+            }catch (SQLException e){
+                e.printStackTrace();
             }
+
+
         });
 
 
     }
 
-    public void LoginUser(String username, String password){
-        //Check if the user exists.
 
-
-    }
 }
