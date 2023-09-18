@@ -55,9 +55,8 @@ public class RegisterController {
 
         if (rdbFemale.isSelected()) {
             gender = "Female";
-        } else {
-            gender = "Male";
-        }
+        } else gender = "Male";
+
 
         User user = new User(firstname,lastname, username, password, gender);
 
