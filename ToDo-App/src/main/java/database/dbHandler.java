@@ -39,9 +39,33 @@ public class dbHandler extends configs{
         }catch (ClassNotFoundException e){
             e.printStackTrace();
         }
-
-
-
     }
+
+    public ResultSet LoginUser(User user) {
+
+        ResultSet result = null;
+
+        if(!user.getUsername().isEmpty() || !user.getPassword().isEmpty()){
+            String query = "SELECT * FROM " + constant.USER_TABLE + " WHERE " + constant.USER_USERNAME + "=?" + " AND "
+                    + constant.USER_PASSWORD + "=?" ;
+
+            try{
+
+                PreparedStatement preparedStatement = getConnection().prepareStatement(query);
+                preparedStatement.setString(1, user.getUsername());
+                preparedStatement.setString(2, user.getPassword());
+
+                result = preparedStatement.executeQuery();
+            } catch(SQLException e){
+                e.printStackTrace();
+            } catch (ClassNotFoundException e){
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("Enter Something");
+        }
+        return  result;
+    }
+
 
 }
